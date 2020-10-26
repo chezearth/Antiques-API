@@ -1,0 +1,28 @@
+{
+  "name": "antiques-api",
+  "version": "0.0.1",
+  "description": "REST API for storing and managing antiques collection, with authentication and basic business rules",
+  "main": "dist/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chezearth/Antiques-API.git"
+  },
+  "keywords": [
+    "REST",
+    "API",
+    "antique",
+    "antiques"
+  ],
+  "author": "Charles W Rethman - used codebase developed by Marcos Silva, Brazil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chezearth/Antiques-API/issues"
+  },
+  "homepage": "https://github.com/chezearth/Antiques-API#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
