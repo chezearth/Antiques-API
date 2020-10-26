@@ -6,7 +6,7 @@ const server: http.Server = http.createServer(app);
 const port = 3000;
 
 app.get("/", (req: express.Request, res: express.Response) => {
-	res.status('200').send(`Server running at port ${port}`);
+	res.status(200).send(`Server running at port ${port}`);
 });
 
 server.listen(port, () => {
