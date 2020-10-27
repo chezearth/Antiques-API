@@ -1,30 +1,47 @@
-import express from 'express';
+import {UsersService} from '../services/user.services';
+
+import express from 'express'
 
 export class UsersController {
 
+	constructor() {
+	}
+
 	listUsers(req: express.Request, res: express.Response) {
-		res.status(200).send(`GET to users`);
+		const usersService = UsersService.getInstance();
+		const users = usersService.list(100, 0);
+		res.status(200).send(users);
 	}
 
 	getUser(req: express.Request, res: express.Response) {
-		res.status(200).send(`GET to user ${req.params.userId}`);
+		const usersService = UsersService.getInstance();
+		const user = usersService.readById(req.params.userId);
+		res.status(200).send(user);
 	}
 
 	
 	createUser(req: express.Request, res: express.Response) {
-		res.status(200).send(`POST new user`);
+		const usersService = UsersService.getInstance();
+		const userId = usersService.create(req.body);
+		res.status(200).send({ id: userId });
 	}
 
 	patchUser(req: express.Request, res: express.Response) {
-		res.status(200).send(`PATCH to user ${req.params.userId}`);
+		const usersService = UsersService.getInstance();
+		usersService.patchById(req.body);
+		res.status(200).send(``);
 	}
 
 	updateUser(req: express.Request, res: express.Response) {
-		res.status(200).send(`PUT to user ${req.params.userId}`);
+		const usersService = UsersService.getInstance();
+		usersService.updateById(req.body);
+		res.status(200).send(``);
 	}
 
 	removeUser(req: express.Request, res: express.Response) {
-		res.status(200).send(`DELETE user ${req.params.userId}`);
+		const usersService = UsersService.getInstance();
+		usersService.deleteById(req.params.userId);
+		res.status(200).send(``);
 	}
 
 }

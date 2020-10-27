@@ -14,7 +14,7 @@ export class GenericInMemoryDao {
 	}
 
 	addUser(user: any) {
-		return this.users.push(user);
+		return this.users.push(Object.assign(user, {id: this.users.length + 1}));
 	}
 
 	getUsers() {
@@ -22,7 +22,7 @@ export class GenericInMemoryDao {
 	}
 
 	getUserById(userId: string) {
-		return this.users.find((user: { id: string }) => user.id === userId);
+		return this.users.find((user: {id: string; }) => user.id.toString() === userId);
 	}
 
 	putUserById(user: any) {
@@ -55,7 +55,7 @@ export class GenericInMemoryDao {
 	}
 
 	removeUserById(userId: string) {
-		const objIndex: number = this.users.findIndex((obj: { id: string; }) => obj.id === userId);
+		const objIndex: number = this.users.findIndex((obj: { id: string; }) => obj.id.toString() === userId);
 		this.users = this.users.splice(objIndex, 1);
 		return `${userId} removed`;
 	}
