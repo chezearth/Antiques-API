@@ -17,19 +17,19 @@ export class UsersRoutes extends CommonRoutesConfig implements configureRoutes{
 			res.status(200).send(`Post to users`);
 		});
 	
-		this.app.put(`/users/{userId}`, (req: express.Request, res: express.Response) => {
+		this.app.put(`/users/:userId`, (req: express.Request, res: express.Response) => {
 			res.status(200).send(`Put to ${req.params.userId}`);
 		});
 	
-		this.app.patch(`/users/{userId}`, (req: express.Request, res: express.Response) => {
+		this.app.patch(`/users/:userId`, (req: express.Request, res: express.Response) => {
 			res.status(200).send(`Patch to ${req.params.userId}`);
 		});
 	
-		this.app.delete(`/users/{userId}`, (req: express.Request, res: express.Response) => {
+		this.app.delete(`/users/:userId`, (req: express.Request, res: express.Response) => {
 			res.status(200).send(`Delete from ${req.params.userId}`);
 		});
 	
-		this.app.get(`/users/{userId}`, (req: express.Request, res: express.Response) => {
+		this.app.get(`/users/:userId`, (req: express.Request, res: express.Response) => {
 			res.status(200).send(`Get from ${req.params.userId}`);
 		});
 	
